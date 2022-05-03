@@ -294,23 +294,6 @@ def get_sha():
 def collate_fn(raw_batch):
     raw_batch = list(zip(*raw_batch))
     
-<<<<<<< HEAD
-    img = torch.stack(raw_batch[0]) # nothing to change
-    img_mask = torch.tensor(raw_batch[1]) # nothing to change
-    img_data = NestedTensor(img, img_mask) # nothing to change
-
-    # do raw_batch[2] and get the required waveform
-    audio_data = raw_batch[2] 
-    # we dont want raw_batch[3]
-    # word_mask = torch.tensor(raw_batch[3])
-    
-    # no need to create a nested tensor
-    # text_data = NestedTensor(word_id, word_mask)
-
-    bbox = torch.tensor(raw_batch[3])
-    batch = [img_data, audio_data, bbox]
-
-=======
     img = torch.stack(raw_batch[0])
     img_mask = torch.tensor(raw_batch[1])
     img_data = NestedTensor(img, img_mask)
@@ -319,7 +302,6 @@ def collate_fn(raw_batch):
     text_data = NestedTensor(word_id, word_mask)
     bbox = torch.tensor(raw_batch[4])
     batch = [img_data, text_data, bbox]
->>>>>>> c8624277018fc9786a39181e229f155f933b2b59
     return tuple(batch)
 
 
