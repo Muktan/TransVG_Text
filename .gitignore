@@ -13,5 +13,5 @@ venv/
 *.bin
 outputs
 saved_models
-ln_data
+# ln_data
 data
